@@ -1,11 +1,7 @@
-// import 'package:edu_corner/pages/log_in_page.dart';
-// import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/on_board_page.dart';
-// import 'package:edu_corner/pages/sign_up_page.dart';
-import 'package:flutter/material.dart';
+import 'package:edu_corner/pages/bottom_nav_bar.dart';
+import 'package:edu_corner/pages/splash_screen.dart';
 
-// import 'pages/splash_screen.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +19,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: SplashScreenPage(),
     );
   }
 }

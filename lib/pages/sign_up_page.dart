@@ -1,3 +1,4 @@
+import 'package:edu_corner/pages/bottom_nav_bar.dart';
 import 'package:edu_corner/pages/log_in_page.dart';
 import 'package:edu_corner/pages/home_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
@@ -228,7 +229,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => BottemNavigationBarPage(),
                           ),
                         );
                     },

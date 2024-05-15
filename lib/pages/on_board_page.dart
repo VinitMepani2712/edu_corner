@@ -1,3 +1,4 @@
+import 'package:edu_corner/pages/home_page.dart';
 import 'package:edu_corner/pages/log_in_page.dart';
 import 'package:edu_corner/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
@@ -89,10 +90,8 @@ class _OnBoardPageState extends State<OnBoardPage> {
                         right: 10,
                         child: GestureDetector(
                           onTap: () {
-                            _controller.animateToPage(
+                            _controller.jumpToPage(
                               contents.length - 1,
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.easeInOut,
                             );
                           },
                           child: Container(

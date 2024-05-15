@@ -1,8 +1,6 @@
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -710,42 +708,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: Container(
-        // decoration: BoxDecoration(
-        //     borderRadius: BorderRadius.circular(50.0),
-        //     color: Color.fromRGBO(171, 175, 178, 0.15)),
-        margin: EdgeInsets.all(15),
-        child: GNav(
-            haptic: true,
-            activeColor: Color.fromRGBO(44, 132, 195, 1),
-            iconSize: 24,
-            // backgroundColor: Colors.red,
-            gap: 5,
-            tabBackgroundColor: Color.fromRGBO(44, 132, 195, 0.2),
-            padding: EdgeInsets.all(7),
-            tabs: [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.menu_book_outlined,
-                text: 'Course',
-              ),
-              GButton(
-                icon: FontAwesomeIcons.book,
-                text: 'Books',
-              ),
-              GButton(
-                icon: Icons.chat,
-                text: 'Message',
-              ),
-              GButton(
-                icon: Icons.person,
-                text: 'Profile',
-              )
-            ]),
       ),
     );
   }

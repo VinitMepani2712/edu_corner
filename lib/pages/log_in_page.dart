@@ -1,10 +1,9 @@
+import 'package:edu_corner/pages/bottom_nav_bar.dart';
 import 'package:edu_corner/pages/forgot_password_page.dart';
 import 'package:edu_corner/pages/home_page.dart';
 import 'package:edu_corner/pages/sign_up_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
@@ -176,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => HomePage())));
+                                builder: ((context) => BottemNavigationBarPage())));
                     },
                     child: Container(
                       margin: EdgeInsets.only(left: 10, right: 10),

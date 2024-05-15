@@ -71,12 +71,30 @@ class AppWidget {
     );
   }
 
+  static TextStyle appbarTextStyle() {
+    return const TextStyle(
+      fontSize: 20,
+      fontFamily: "Times New Roman",
+      fontWeight: FontWeight.w700,
+      color: Color.fromARGB(255, 0, 0, 0),
+    );
+  }
+
   static TextStyle courseLightTextStyle() {
     return const TextStyle(
       fontSize: 13,
       fontFamily: "Times New Roman",
       fontWeight: FontWeight.w600,
       color: Color(0xff9A9998),
+    );
+  }
+
+  static TextStyle editProfileTextStyle() {
+    return const TextStyle(
+      fontSize: 16,
+      fontFamily: "Times New Roman",
+      fontWeight: FontWeight.w700,
+      color: Color.fromARGB(255, 0, 0, 0),
     );
   }
 }
