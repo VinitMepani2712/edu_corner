@@ -1,4 +1,4 @@
-import 'package:edu_corner/pages/bottom_nav_bar.dart';
+import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
 import 'package:edu_corner/pages/home_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/cupertino.dart';
@@ -151,7 +151,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BottemNavigationBarPage(),
+                            builder: (context) => BottemNavBarPage(),
                           ),
                         );
                     },

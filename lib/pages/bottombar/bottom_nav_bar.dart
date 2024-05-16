@@ -1,28 +1,37 @@
+import 'package:edu_corner/pages/bookmarks_page.dart';
+import 'package:edu_corner/pages/course_page.dart';
 import 'package:edu_corner/pages/home_page.dart';
+import 'package:edu_corner/pages/inbox_page.dart';
 import 'package:edu_corner/pages/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class BottemNavigationBarPage extends StatefulWidget {
-  const BottemNavigationBarPage({super.key});
+class BottemNavBarPage extends StatefulWidget {
+  const BottemNavBarPage({super.key});
 
   @override
-  State<BottemNavigationBarPage> createState() =>
-      _BottemNavigationBarPageState();
+  State<BottemNavBarPage> createState() => _BottemNavBarPageState();
 }
 
-class _BottemNavigationBarPageState extends State<BottemNavigationBarPage> {
+class _BottemNavBarPageState extends State<BottemNavBarPage> {
   int currentTabIndex = 0;
   late List<Widget> pages;
   late HomePage homePage;
+  late MyCoursePage mycoursepage;
+  late InboxPage inboxPage;
   late ProfilePage profilePage;
+  late BookmarksPage bookmarksPage;
 
   @override
   void initState() {
     homePage = const HomePage();
+    mycoursepage = const MyCoursePage();
+    bookmarksPage = const BookmarksPage();
+    inboxPage = const InboxPage();
     profilePage = const ProfilePage();
 
-    pages = [homePage, profilePage];
+    pages = [homePage, mycoursepage, bookmarksPage, inboxPage, profilePage];
     super.initState();
   }
 
@@ -48,18 +57,18 @@ class _BottemNavigationBarPageState extends State<BottemNavigationBarPage> {
                 icon: Icons.home,
                 text: 'Home',
               ),
-              // GButton(
-              //   icon: Icons.menu_book_outlined,
-              //   text: 'Course',
-              // ),
-              // GButton(
-              //   icon: FontAwesomeIcons.book,
-              //   text: 'Books',
-              // ),
-              // GButton(
-              //   icon: Icons.chat,
-              //   text: 'Message',
-              // ),
+              GButton(
+                icon: Icons.menu_book_outlined,
+                text: 'My Course',
+              ),
+              GButton(
+                icon: FontAwesomeIcons.book,
+                text: 'Bookmarks',
+              ),
+              GButton(
+                icon: Icons.chat,
+                text: 'Inbox',
+              ),
               GButton(
                 icon: Icons.person,
                 text: 'Profile',

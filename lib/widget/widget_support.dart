@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppWidget {
   static TextStyle textStyle() {
     return const TextStyle(
-      fontSize: 28,
+      fontSize: 22,
       fontWeight: FontWeight.w700,
       fontFamily: "Plus Jakarta Sans",
       color: Color(0xFF0E74BC),
@@ -95,6 +95,24 @@ class AppWidget {
       fontFamily: "Times New Roman",
       fontWeight: FontWeight.w700,
       color: Color.fromARGB(255, 0, 0, 0),
+    );
+  }
+
+  static TextStyle searchTextStyle() {
+    return const TextStyle(
+      fontSize: 16,
+      fontFamily: "Times New Roman",
+      fontWeight: FontWeight.w600,
+      color: Color(0xff0E74BC),
+    );
+  }
+
+  static TextStyle missCallTextStyle() {
+    return const TextStyle(
+      fontSize: 16,
+      fontFamily: "Times New Roman",
+      fontWeight: FontWeight.w600,
+      color: Color.fromARGB(255, 255, 0, 0),
     );
   }
 }

@@ -1,11 +1,11 @@
 import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/log_in_page.dart';
-import 'package:edu_corner/pages/sign_up_page.dart';
+import 'package:edu_corner/pages/Auth/log_in_page.dart';
+import 'package:edu_corner/pages/Auth/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../widget/content_modal.dart';
-import '../widget/widget_support.dart';
+import '../../widget/content_modal.dart';
+import '../../widget/widget_support.dart';
 
 class OnBoardPage extends StatefulWidget {
   const OnBoardPage({super.key});

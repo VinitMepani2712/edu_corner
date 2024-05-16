@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:edu_corner/pages/on_board_page.dart';
+import 'package:edu_corner/pages/onboardscreen/on_board_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreenPage extends StatefulWidget {

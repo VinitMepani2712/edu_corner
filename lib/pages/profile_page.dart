@@ -1,6 +1,12 @@
-import 'package:edu_corner/pages/edit_profile_page.dart';
-import 'package:edu_corner/pages/log_in_page.dart';
+import 'package:edu_corner/pages/profile/certificate_page.dart';
+import 'package:edu_corner/pages/profile/download_page.dart';
+import 'package:edu_corner/pages/profile/edit_profile_page.dart';
+import 'package:edu_corner/pages/profile/help_and_support_page.dart';
+import 'package:edu_corner/pages/Auth/log_in_page.dart';
+import 'package:edu_corner/pages/profile/privacy_policy.dart';
+import 'package:edu_corner/pages/profile/project_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -135,81 +141,93 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              height: 76,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(228, 239, 247, 0.38),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Color(0xff74BFF5),
-                          width: 3.0,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CertificatePage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                height: 76,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Color.fromRGBO(228, 239, 247, 0.38),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Color(0xff74BFF5),
+                            width: 3.0,
+                          ),
                         ),
+                        child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(108, 129, 187, 228),
+                            child: SvgPicture.asset(
+                              "assets/svg/certificate.svg",
+                              // ignore: deprecated_member_use
+                              color: Color.fromARGB(255, 59, 168, 247),
+                            )),
                       ),
-                      child: CircleAvatar(
-                          backgroundColor: Color.fromARGB(108, 129, 187, 228),
-                          child: SvgPicture.asset(
-                            "assets/svg/certificate.svg",
-                            // ignore: deprecated_member_use
-                            color: Color.fromARGB(255, 59, 168, 247),
-                          )),
-                    ),
-                    SizedBox(width: 20),
-                    Text("My Certificates"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 3.4,
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right_rounded,
-                    ),
-                  ],
+                      SizedBox(width: 20),
+                      Text("My Certificates"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 3.4,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              height: 76,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(228, 239, 247, 0.38),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Color(0xff74BFF5),
-                          width: 3.0,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProjectPage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                height: 76,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Color.fromRGBO(228, 239, 247, 0.38),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Color(0xff74BFF5),
+                            width: 3.0,
+                          ),
                         ),
+                        child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(108, 129, 187, 228),
+                            child: SvgPicture.asset(
+                              "assets/svg/chart.svg",
+                              height: 20, // ignore: deprecated_member_use
+                              color: Color.fromARGB(255, 59, 168, 247),
+                            )),
                       ),
-                      child: CircleAvatar(
-                          backgroundColor: Color.fromARGB(108, 129, 187, 228),
-                          child: SvgPicture.asset(
-                            "assets/svg/chart.svg",
-                            height: 20, // ignore: deprecated_member_use
-                            color: Color.fromARGB(255, 59, 168, 247),
-                          )),
-                    ),
-                    SizedBox(width: 20),
-                    Text("My Projects"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.8,
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right_rounded,
-                    ),
-                  ],
+                      SizedBox(width: 20),
+                      Text("My Projects"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2.8,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -252,119 +270,141 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              height: 76,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(228, 239, 247, 0.38),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Color(0xff74BFF5),
-                          width: 3.0,
-                        ),
-                      ),
-                      child: CircleAvatar(
-                          backgroundColor: Color.fromARGB(108, 129, 187, 228),
-                          child: SvgPicture.asset(
-                            "assets/svg/headphones.svg",
-                            // ignore: deprecated_member_use
-                            color: Color.fromARGB(255, 59, 168, 247),
-                          )),
-                    ),
-                    SizedBox(width: 20),
-                    Text("Help & Support"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 3.3,
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right_rounded,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              height: 76,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(228, 239, 247, 0.38),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Color(0xff74BFF5),
-                          width: 3.0,
-                        ),
-                      ),
-                      child: CircleAvatar(
-                          backgroundColor: Color.fromARGB(108, 129, 187, 228),
-                          child: SvgPicture.asset(
-                            "assets/svg/privacy-tips.svg",
-                            // height: 20, // ignore: deprecated_member_use
-                            color: Color.fromARGB(255, 59, 168, 247),
-                          )),
-                    ),
-                    SizedBox(width: 20),
-                    Text("Privacy Policy"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 3.3,
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right_rounded,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              height: 76,
-              decoration: BoxDecoration(
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HelpAndSupportPage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                height: 76,
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Color.fromRGBO(228, 239, 247, 0.38)),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Color(0xff74BFF5),
-                          width: 3.0,
+                  color: Color.fromRGBO(228, 239, 247, 0.38),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Color(0xff74BFF5),
+                            width: 3.0,
+                          ),
                         ),
+                        child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(108, 129, 187, 228),
+                            child: SvgPicture.asset(
+                              "assets/svg/headphones.svg",
+                              // ignore: deprecated_member_use
+                              color: Color.fromARGB(255, 59, 168, 247),
+                            )),
                       ),
-                      child: CircleAvatar(
-                          backgroundColor: Color.fromARGB(108, 129, 187, 228),
-                          child: SvgPicture.asset(
-                            "assets/svg/download.svg",
-                            // ignore: deprecated_member_use
-                            color: Color.fromARGB(255, 59, 168, 247),
-                          )),
-                    ),
-                    SizedBox(width: 20),
-                    Text("My Downloads"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 3.3,
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right_rounded,
-                    ),
-                  ],
+                      SizedBox(width: 20),
+                      Text("Help & Support"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 3.3,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PrivacyPolicayPage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                height: 76,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Color.fromRGBO(228, 239, 247, 0.38),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Color(0xff74BFF5),
+                            width: 3.0,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(108, 129, 187, 228),
+                            child: SvgPicture.asset(
+                              "assets/svg/privacy-tips.svg",
+                              // height: 20, // ignore: deprecated_member_use
+                              color: Color.fromARGB(255, 59, 168, 247),
+                            )),
+                      ),
+                      SizedBox(width: 20),
+                      Text("Privacy Policy"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 3.3,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DownloadPage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                height: 76,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Color.fromRGBO(228, 239, 247, 0.38)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Color(0xff74BFF5),
+                            width: 3.0,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(108, 129, 187, 228),
+                            child: SvgPicture.asset(
+                              "assets/svg/download.svg",
+                              // ignore: deprecated_member_use
+                              color: Color.fromARGB(255, 59, 168, 247),
+                            )),
+                      ),
+                      SizedBox(width: 20),
+                      Text("My Downloads"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 3.3,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

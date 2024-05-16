@@ -1,7 +1,7 @@
-import 'package:edu_corner/pages/bottom_nav_bar.dart';
-import 'package:edu_corner/pages/forgot_password_page.dart';
+import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
+import 'package:edu_corner/pages/Auth/forgot_password_page.dart';
 import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/sign_up_page.dart';
+import 'package:edu_corner/pages/Auth/sign_up_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -175,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => BottemNavigationBarPage())));
+                                builder: ((context) => BottemNavBarPage())));
                     },
                     child: Container(
                       margin: EdgeInsets.only(left: 10, right: 10),

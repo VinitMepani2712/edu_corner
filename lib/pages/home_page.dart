@@ -1,5 +1,7 @@
+import 'package:edu_corner/pages/home/notifiction_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -55,10 +57,15 @@ class _HomePageState extends State<HomePage> {
                   //   // ignore: deprecated_member_use
                   //   color: Colors.black,
                   // ),
-                  Image.asset(
-                    "assets/screen/Doorbell.png",
-                    height: 25,
-                    width: 25,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (contetx)=> NotificationPage()));
+                    },
+                    child: Image.asset(
+                      "assets/screen/Doorbell.png",
+                      height: 25,
+                      width: 25,
+                    ),
                   ),
                 ],
               ),
@@ -72,12 +79,14 @@ class _HomePageState extends State<HomePage> {
                     width: 270,
                     child: TextField(
                       decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: "Search",
-                          prefixIcon: Icon(Icons.search),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10))),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        hintText: "Search",
+                        prefixIcon: Icon(Icons.search),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
