@@ -244,158 +244,427 @@ class _CourseDetailsState extends State<CourseDetails>
                     height: 10,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 2,
+                    height: MediaQuery.of(context).size.height / 2.5,
                     child: TabBarView(
                       controller: _tabController,
                       children: [
-                        ExpansionTile(
-                          title: Row(children: [
-                            Image.asset("assets/screen/curriculum.png"),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Lesson 1 :",
-                                    style: AppWidget.courseHeaderTextStyle(),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "Intro to Blockchain",
-                                    style: AppWidget.courseHeaderTextStyle(),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ]),
-                          backgroundColor: Colors.grey[200],
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.play_circle_fill_outlined),
-                                  Expanded(
-                                    child: Text(
-                                      '2.1  Blockchain  & Its Importance',
-                                      style: TextStyle(fontSize: 16),
+                        SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Card(
+                                elevation: 5,
+                                child: ExpansionTile(
+                                  collapsedBackgroundColor: Color(0xffE4EFF7),
+                                  collapsedShape: ShapeBorder.lerp(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
                                     ),
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    0.5,
                                   ),
-                                  Icon(Icons.check_box),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.play_circle_fill_outlined),
-                                  Text(
-                                    '2.2  Blockchain in  Banking System',
-                                    style: TextStyle(fontSize: 16),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                  Icon(Icons.check_box),
-                                ],
+                                  title: Row(children: [
+                                    Image.asset("assets/screen/curriculum.png"),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Lesson 1 :",
+                                            style: AppWidget
+                                                .courseHeaderTextStyle(),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text(
+                                            "Intro to Blockchain",
+                                            style: AppWidget
+                                                .courseHeaderTextStyle(),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ]),
+                                  backgroundColor: Colors.grey[200],
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '1.1  Blockchain  & Its Importance',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '1.2  Blockchain in  Banking System',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '1.3 Blockchain Transaction',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '1.4 Transaction Initiation',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.lock),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                  onExpansionChanged: (bool expanded) {
+                                    setState(() {
+                                      isExpanded = expanded;
+                                    });
+                                  },
+                                  initiallyExpanded: isExpanded,
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.play_circle_fill_outlined),
-                                  Text(
-                                    '2.3 Blockchain Transaction',
-                                    style: TextStyle(fontSize: 16),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Card(
+                                elevation: 5,
+                                child: ExpansionTile(
+                                  collapsedBackgroundColor: Color(0xffE4EFF7),
+                                  collapsedShape: ShapeBorder.lerp(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    0.5,
                                   ),
-                                  Icon(Icons.check_box),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.play_circle_fill_outlined),
-                                  Text(
-                                    '2.4 Transaction Initiation',
-                                    style: TextStyle(fontSize: 16),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                  Icon(Icons.check_box),
-                                ],
+                                  title: Row(children: [
+                                    Image.asset("assets/screen/curriculum.png"),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Lesson 2 :",
+                                            style: AppWidget
+                                                .courseHeaderTextStyle(),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text(
+                                            "Bitcoin Blockchain",
+                                            style: AppWidget
+                                                .courseHeaderTextStyle(),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ]),
+                                  backgroundColor: Colors.grey[200],
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '2.1  Blockchain  & Its Importance ',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              '2.2  Blockchain in  Banking System',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '2.3 Blockchain Transaction',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.play_circle_fill_outlined),
+                                          Expanded(
+                                            child: Text(
+                                              '2.4 Transaction Initiation',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          ),
+                                          Icon(Icons.check_box),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                  onExpansionChanged: (bool expanded) {
+                                    setState(() {
+                                      isExpanded = expanded;
+                                    });
+                                  },
+                                  initiallyExpanded: isExpanded,
+                                ),
                               ),
-                            ),
-                          ],
-                          onExpansionChanged: (bool expanded) {
-                            setState(() {
-                              isExpanded = expanded;
-                            });
-                          },
-                          initiallyExpanded: isExpanded,
+                            ],
+                          ),
                         ),
 
                         //Projects
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("16668 Projects"),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  "assets/screen/python.png",
-                                  height: 125,
-                                  width: 150,
-                                ),
-                                Image.asset(
-                                  "assets/screen/flutter.png",
-                                  height: 125,
-                                  width: 150,
-                                ),
-                              ],
-                            ),
-                            Text("View All"),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text("Project Description",
-                                style: AppWidget.courseHeaderTextStyle()),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                                "Lorem ipsum dolor sit amet consectetur. Lectus viverra sed aliquam quis enim leo. Turpis nec facilisis placerat dolor ac donec. Odio semper quis rutrum quis lacus odio vivamus ultricies. Ultrices ultricies platea feugiat ac velit nulla. Proin lectus commodo id nullam ")
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("1223 Comments"),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              height: 150,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(color: Color(0xff949292)),
-                                  color: Colors.white),
-                              child: Row(
+                        SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("16668 Projects"),
+                              Row(
                                 children: [
-                                  CircleAvatar(
-                                    minRadius: 30,
-                                    maxRadius: 30,
-                                    foregroundImage:
-                                        AssetImage("assets/screen/profile.png"),
+                                  Image.asset(
+                                    "assets/screen/python.png",
+                                    height: 125,
+                                    width: 150,
+                                  ),
+                                  Image.asset(
+                                    "assets/screen/flutter.png",
+                                    height: 125,
+                                    width: 150,
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
+                              Text("View All"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text("Project Description",
+                                  style: AppWidget.courseHeaderTextStyle()),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                  "Lorem ipsum dolor sit amet consectetur. Lectus viverra sed aliquam quis enim leo. Turpis nec facilisis placerat dolor ac donec. Odio semper quis rutrum quis lacus odio vivamus ultricies. Ultrices ultricies platea feugiat ac velit nulla. Proin lectus commodo id nullam ")
+                            ],
+                          ),
+                        ),
+
+                        //Comments
+                        SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("1223 Comments"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(3),
+                                height: 200,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    border:
+                                        Border.all(color: Color(0xff949292)),
+                                    color: Colors.white),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          CircleAvatar(
+                                            minRadius: 30,
+                                            maxRadius: 30,
+                                            foregroundImage: AssetImage(
+                                                "assets/screen/profile.png"),
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("Moeed Hussain",
+                                                  style: AppWidget
+                                                      .courseHeaderTextStyle()),
+                                              Text("Student",
+                                                  style: AppWidget
+                                                      .courseHeaderTextStyle()),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Wrap(children: [
+                                        Text(
+                                            "Lorem ipsum dolor sit amet consectetur. Lectus viverra sed aliquam quis enim leo. Turpis nec facilisis placerat dolor ac donec. Odio semper quis rutrum quis ")
+                                      ]),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.favorite),
+                                          Text("1"),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Icon(Icons.comment_sharp),
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                2.5,
+                                          ),
+                                          Text("1  week ago")
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(3),
+                                height: 200,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    border:
+                                        Border.all(color: Color(0xff949292)),
+                                    color: Colors.white),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          CircleAvatar(
+                                            minRadius: 30,
+                                            maxRadius: 30,
+                                            foregroundImage: AssetImage(
+                                                "assets/screen/profile.png"),
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("Moeed Hussain",
+                                                  style: AppWidget
+                                                      .courseHeaderTextStyle()),
+                                              Text("Student",
+                                                  style: AppWidget
+                                                      .courseHeaderTextStyle()),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Wrap(children: [
+                                        Text(
+                                            "Lorem ipsum dolor sit amet consectetur. Lectus viverra sed aliquam quis enim leo. Turpis nec facilisis placerat dolor ac donec. Odio semper quis rutrum quis ")
+                                      ]),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.favorite),
+                                          Text("1"),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Icon(Icons.comment_sharp),
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                2.5,
+                                          ),
+                                          Text("1  week ago")
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

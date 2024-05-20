@@ -1,14 +1,15 @@
-import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/Auth/log_in_page.dart';
-import 'package:edu_corner/pages/Auth/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../widget/content_modal.dart';
 import '../../widget/widget_support.dart';
+import '../home_page.dart';
+import '../Auth/log_in_page.dart';
+import '../Auth/sign_up_page.dart';
 
 class OnBoardPage extends StatefulWidget {
-  const OnBoardPage({super.key});
+  const OnBoardPage({Key? key}) : super(key: key);
 
   @override
   State<OnBoardPage> createState() => _OnBoardPageState();
@@ -18,20 +19,22 @@ class _OnBoardPageState extends State<OnBoardPage> {
   int currentIndex = 0;
   late PageController _controller = PageController();
 
-  void inState() {
+  @override
+  void initState() {
     _controller = PageController(initialPage: 0);
-
     super.initState();
   }
 
+  @override
   void dispose() {
     _controller.dispose();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
+
     return Scaffold(
       body: Column(
         children: [
@@ -49,32 +52,31 @@ class _OnBoardPageState extends State<OnBoardPage> {
                   children: [
                     Center(
                       child: Padding(
-                        padding:
-                            const EdgeInsets.only(top: 40, left: 20, right: 20),
+                        padding: EdgeInsets.only(
+                          top: 40.h,
+                          left: 20.w,
+                          right: 20.w,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(25.w),
                               child: Image.asset(
                                 contents[i].image,
-                                height: 300,
+                                height: 300.h,
                                 width: MediaQuery.of(context).size.width,
                                 fit: BoxFit.contain,
                               ),
                             ),
-                            const SizedBox(
-                              height: 5,
-                            ),
+                            SizedBox(height: 5.h),
                             Text(
                               contents[i].title,
                               textAlign: TextAlign.center,
                               style: AppWidget.textStyle(),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            SizedBox(height: 20.h),
                             Text(
                               contents[i].description,
                               textAlign: TextAlign.center,
@@ -86,22 +88,20 @@ class _OnBoardPageState extends State<OnBoardPage> {
                     ),
                     if (i < contents.length - 1)
                       Positioned(
-                        top: 45,
-                        right: 10,
+                        top: 45.h,
+                        right: 10.w,
                         child: GestureDetector(
                           onTap: () {
-                            _controller.jumpToPage(
-                              contents.length - 1,
-                            );
+                            _controller.jumpToPage(contents.length - 1);
                           },
                           child: Container(
-                            width: 60,
-                            padding: const EdgeInsets.all(10),
+                            width: 60.w,
+                            padding: EdgeInsets.all(10.w),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF0E74BC),
-                              borderRadius: BorderRadius.circular(20),
+                              color: Color(0xFF0E74BC),
+                              borderRadius: BorderRadius.circular(20.w),
                             ),
-                            child: const Center(
+                            child: Center(
                               child: Text(
                                 "SKIP",
                                 style: TextStyle(
@@ -123,24 +123,22 @@ class _OnBoardPageState extends State<OnBoardPage> {
             children: List.generate(
               contents.length,
               (index) => Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: buildDot(index, context),
+                padding: EdgeInsets.only(right: 5.w),
+                child: buildDot(index),
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20.h),
           GestureDetector(
             onTap: () {
               if (currentIndex == contents.length - 1) {
-                // Navigator.pushReplacement(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const SignUpPage()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignUpPage()),
+                );
               }
               _controller.nextPage(
-                duration: const Duration(milliseconds: 100),
+                duration: Duration(milliseconds: 100),
                 curve: Curves.bounceIn,
               );
             },
@@ -155,31 +153,31 @@ class _OnBoardPageState extends State<OnBoardPage> {
                           currentIndex = currentIndex - 1;
                         });
                         _controller.previousPage(
-                          duration: const Duration(milliseconds: 100),
+                          duration: Duration(milliseconds: 100),
                           curve: Curves.bounceOut,
                         );
                       },
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
+                        width: MediaQuery.of(context).size.width / 2.5.w,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 20.w,
+                          vertical: 10.h,
                         ),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: const Color(0xFF0E74BC),
-                            width: 2,
+                            color: Color(0xFF0E74BC),
+                            width: 2.w,
                           ),
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(8),
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(8.w),
                         ),
-                        child: const Text(
-                          textAlign: TextAlign.center,
+                        child: Text(
                           "BACK",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                           ),
                         ),
                       ),
@@ -192,65 +190,62 @@ class _OnBoardPageState extends State<OnBoardPage> {
                             //Add Explore Course Page Route
                           },
                           child: Container(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 10,
+                            width: MediaQuery.of(context).size.width / 1.5.w,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20.w,
+                              vertical: 10.h,
                             ),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF0E74BC),
-                              borderRadius: BorderRadius.circular(8),
+                              color: Color(0xFF0E74BC),
+                              borderRadius: BorderRadius.circular(8.w),
                             ),
-                            child: const Text(
-                              textAlign: TextAlign.center,
+                            child: Text(
                               "EXPLORE COURSE",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromARGB(255, 255, 255, 255),
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        SizedBox(height: 20.h),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignUpPage()),
+                                builder: (context) => LoginPage(),
+                              ),
                             );
                           },
                           child: Container(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 10,
+                            width: MediaQuery.of(context).size.width / 1.5.w,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20.w,
+                              vertical: 10.h,
                             ),
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: const Color(0xFF0E74BC),
-                                width: 2,
+                                color: Color(0xFF0E74BC),
+                                width: 2.w,
                               ),
-                              color: const Color.fromARGB(255, 255, 255, 255),
-                              borderRadius: BorderRadius.circular(8),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8.w),
                             ),
-                            child: const Text(
-                              textAlign: TextAlign.center,
+                            child: Text(
                               "SIGN UP",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        SizedBox(height: 20.h),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -268,7 +263,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                                 style: TextStyle(
                                   color: Color(0xFF6C6C6C),
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                 ),
                               ),
                               Text(
@@ -276,7 +271,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                                 style: TextStyle(
                                   color: Color(0xFF0E74BC),
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                 ),
                               ),
                             ],
@@ -293,24 +288,24 @@ class _OnBoardPageState extends State<OnBoardPage> {
                           currentIndex = currentIndex + 1;
                         });
                         _controller.nextPage(
-                          duration: const Duration(milliseconds: 100),
+                          duration: Duration(milliseconds: 100),
                           curve: Curves.bounceIn,
                         );
                       },
                       child: Center(
                         child: Container(
                           width: currentIndex == 0
-                              ? MediaQuery.of(context).size.width / 1.5
-                              : MediaQuery.of(context).size.width / 2.5,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 10,
+                              ? MediaQuery.of(context).size.width / 1.5.w
+                              : MediaQuery.of(context).size.width / 2.5.w,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20.w,
+                            vertical: 10.h,
                           ),
                           decoration: BoxDecoration(
                             color: currentIndex == 0
-                                ? const Color(0xFF0E74BC)
-                                : const Color(0xFF0E74BC),
-                            borderRadius: BorderRadius.circular(8),
+                                ? Color(0xFF0E74BC)
+                                : Color(0xFF0E74BC),
+                            borderRadius: BorderRadius.circular(8.w),
                           ),
                           child: Text(
                             "NEXT",
@@ -318,9 +313,9 @@ class _OnBoardPageState extends State<OnBoardPage> {
                             style: TextStyle(
                               color: currentIndex == 0
                                   ? Colors.white
-                                  : const Color(0xFFFFFFFF),
+                                  : Color(0xFFFFFFFF),
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                           ),
                         ),
@@ -330,23 +325,23 @@ class _OnBoardPageState extends State<OnBoardPage> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 75,
-          ),
+          SizedBox(height: 75.h),
         ],
       ),
     );
   }
 
-  Container buildDot(int index, BuildContext context) {
+  Container buildDot(int index) {
     return Container(
-      height: 2.0,
-      width: currentIndex == index ? 20 : 10,
-      margin: const EdgeInsets.symmetric(horizontal: 4),
+      height: 2.0.h,
+      width: currentIndex == index ? 20.w : 10.w,
+      margin: EdgeInsets.symmetric(horizontal: 4.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1),
-        color: currentIndex == index ? const Color(0xFF0E74BC) : Colors.grey,
+        color: currentIndex == index ? Color(0xFF0E74BC) : Colors.grey,
       ),
     );
   }
 }
+
+                          

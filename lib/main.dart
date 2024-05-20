@@ -1,5 +1,7 @@
 import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
 import 'package:edu_corner/pages/course_details/course_details_page.dart';
+import 'package:edu_corner/pages/home/cart_screen.dart';
+import 'package:edu_corner/pages/payment/first_checkout_screen.dart';
 import 'package:edu_corner/pages/splash_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
       ),
-      home: CourseDetails(),
+      home: FirstCheckoutScreen(),
     );
   }
 }
