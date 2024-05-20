@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../widget/content_modal.dart';
 import '../../widget/widget_support.dart';
-import '../home_page.dart';
 import '../Auth/log_in_page.dart';
 import '../Auth/sign_up_page.dart';
 
@@ -53,7 +51,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                     Center(
                       child: Padding(
                         padding: EdgeInsets.only(
-                          top: 40.h,
+                          top: 20.h,
                           left: 20.w,
                           right: 20.w,
                         ),
@@ -65,7 +63,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                               borderRadius: BorderRadius.circular(25.w),
                               child: Image.asset(
                                 contents[i].image,
-                                height: 300.h,
+                                height: 250.h,
                                 width: MediaQuery.of(context).size.width,
                                 fit: BoxFit.contain,
                               ),
@@ -128,7 +126,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
               ),
             ),
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 30.h),
           GestureDetector(
             onTap: () {
               if (currentIndex == contents.length - 1) {
@@ -245,7 +243,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20.h),
+                        SizedBox(height: 10.h),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -279,9 +277,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                         ),
                       ],
                     ),
-                  if (currentIndex <
-                      contents.length -
-                          1) // Show next button on pages 1 to (last - 1)
+                  if (currentIndex < contents.length - 1)
                     GestureDetector(
                       onTap: () {
                         setState(() {
@@ -343,5 +339,3 @@ class _OnBoardPageState extends State<OnBoardPage> {
     );
   }
 }
-
-                          

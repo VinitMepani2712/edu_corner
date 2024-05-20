@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:edu_corner/pages/onboardscreen/on_board_page.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreenPage extends StatefulWidget {
-  const SplashScreenPage({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashScreenPage> createState() => _SplashScreenPageState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenPageState extends State<SplashScreenPage> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();

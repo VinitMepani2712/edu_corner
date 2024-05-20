@@ -2,6 +2,7 @@ import 'package:edu_corner/pages/home/notifiction_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                top: 35.0,
+                top: 35,
                 left: 20,
               ),
               child: Row(
@@ -31,25 +32,23 @@ class _HomePageState extends State<HomePage> {
                     foregroundImage: AssetImage("assets/screen/profile.png"),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 10.w,
                   ),
                   Text("Hello Sara !"),
-                  SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Image.asset(
                     "assets/screen/hand_wave.png",
-                    height: 25,
-                    width: 25,
+                    height: 25.h,
+                    width: 25.h,
                   ),
 
-                  SizedBox(
-                    width: 120,
-                  ),
+                  SizedBox(width: 100.w),
                   Image.asset(
                     "assets/screen/settings.png",
-                    height: 25,
-                    width: 25,
+                    height: 25.h,
+                    width: 25.w,
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   // SvgPicture.asset(
                   //   "assets/svg/doorbell.svg",
                   //   height: 25,
@@ -58,8 +57,11 @@ class _HomePageState extends State<HomePage> {
                   //   color: Colors.black,
                   // ),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (contetx)=> NotificationPage()));
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (contetx) => NotificationPage()));
                     },
                     child: Image.asset(
                       "assets/screen/Doorbell.png",

@@ -49,11 +49,11 @@ class _LoginPageState extends State<LoginPage> {
                   controller: emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter your email address";
+                      return "\u274C Please enter your email address";
                     }
                     if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                         .hasMatch(value)) {
-                      return 'Please enter a valid email address';
+                      return '\u274C Please enter a valid email address';
                     }
                     return null;
                   },
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Enter your password";
+                      return "\u274C Enter your password";
                     }
                     return null;
                   },
@@ -133,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Expanded(
                       child: CheckboxListTile(
+                        contentPadding: EdgeInsets.zero,
                         title: Text('Remember Me'),
                         value: isChecked,
                         onChanged: (newValue) {
@@ -301,4 +302,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-

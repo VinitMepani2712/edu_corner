@@ -5,7 +5,6 @@ class AppWidget {
     return const TextStyle(
       fontSize: 22,
       fontWeight: FontWeight.w700,
-      fontFamily: "Plus Jakarta Sans",
       color: Color(0xFF0E74BC),
     );
   }
@@ -14,7 +13,6 @@ class AppWidget {
     return const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      fontFamily: "Plus Jakarta Sans",
       color: Color(0xFF6C6C6C),
     );
   }
@@ -38,7 +36,6 @@ class AppWidget {
   static TextStyle headerTextStyle() {
     return const TextStyle(
       fontSize: 28,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w700,
       color: Colors.black,
     );
@@ -47,7 +44,6 @@ class AppWidget {
   static TextStyle normalTextStyle() {
     return const TextStyle(
       fontSize: 16,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w700,
       color: Colors.black,
     );
@@ -56,7 +52,6 @@ class AppWidget {
   static TextStyle courseHeaderTextStyle() {
     return const TextStyle(
       fontSize: 14,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w700,
       color: Color.fromARGB(255, 0, 0, 0),
     );
@@ -65,7 +60,6 @@ class AppWidget {
   static TextStyle priceTextStyle() {
     return const TextStyle(
       fontSize: 13,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w500,
       color: Color(0xff0E74BC),
     );
@@ -74,7 +68,6 @@ class AppWidget {
   static TextStyle appbarTextStyle() {
     return const TextStyle(
       fontSize: 20,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w700,
       color: Color.fromARGB(255, 0, 0, 0),
     );
@@ -83,7 +76,6 @@ class AppWidget {
   static TextStyle courseLightTextStyle() {
     return const TextStyle(
       fontSize: 13,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w600,
       color: Color(0xff9A9998),
     );
@@ -92,7 +84,6 @@ class AppWidget {
   static TextStyle editProfileTextStyle() {
     return const TextStyle(
       fontSize: 16,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w700,
       color: Color.fromARGB(255, 0, 0, 0),
     );
@@ -101,7 +92,6 @@ class AppWidget {
   static TextStyle searchTextStyle() {
     return const TextStyle(
       fontSize: 16,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w600,
       color: Color(0xff0E74BC),
     );
@@ -110,7 +100,6 @@ class AppWidget {
   static TextStyle missCallTextStyle() {
     return const TextStyle(
       fontSize: 16,
-      fontFamily: "Times New Roman",
       fontWeight: FontWeight.w600,
       color: Color.fromARGB(255, 255, 0, 0),
     );

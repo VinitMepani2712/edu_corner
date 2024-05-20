@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^2.0.6
   flutter_screenutil: ^5.9.1
   dotted_border: ^2.1.0
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
