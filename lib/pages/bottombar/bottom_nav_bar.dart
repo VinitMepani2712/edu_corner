@@ -18,7 +18,7 @@ class BottomNavBarPage extends StatefulWidget {
 class _BottomNavBarPageState extends State<BottomNavBarPage> {
   int currentTabIndex = 0;
   late List<Widget> pages;
-  late HomePage homePage;
+  late HomeScreen homePage;
   late MyCoursePage mycoursepage;
   late InboxPage inboxPage;
   late ProfilePage profilePage;
@@ -26,7 +26,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
 
   @override
   void initState() {
-    homePage = const HomePage();
+    homePage = HomeScreen();
     mycoursepage = const MyCoursePage();
     bookmarksPage = const BookmarksPage();
     inboxPage = const InboxPage();

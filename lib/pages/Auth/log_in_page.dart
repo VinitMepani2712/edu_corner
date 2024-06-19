@@ -60,24 +60,42 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                      borderSide: BorderSide(
+                        color: Color(
+                          (0xffDEDEDE),
+                        ),
+                      ),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                      borderSide: BorderSide(
+                        color: Color(
+                          (0xffDEDEDE),
+                        ),
+                      ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                      borderSide: BorderSide(
+                        color: Color(
+                          (0xffDEDEDE),
+                        ),
+                      ),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                      borderSide: BorderSide(
+                        color: Color(
+                          (0xffDEDEDE),
+                        ),
+                      ),
                     ),
                     fillColor: Color.fromRGBO(64, 123, 255, 0.03),
                     filled: true,
                     hintText: "Email Address",
-                    hintStyle: TextStyle(color: Color(0xff858383)),
+                    hintStyle: TextStyle(
+                      color: Color(0xff858383),
+                    ),
                     suffixIcon: Icon(FontAwesomeIcons.envelope),
                     border: InputBorder.none,
                   ),
@@ -96,7 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                      borderSide: BorderSide(
+                        color: Color(
+                          (0xffDEDEDE),
+                        ),
+                      ),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
