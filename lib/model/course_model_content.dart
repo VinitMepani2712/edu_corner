@@ -1,7 +1,7 @@
 import 'package:edu_corner/model/course_model.dart';
 
-final List<Course> continueLearningCourses = [
-  Course(
+final List<CourseModel> continueLearningCourses = [
+  CourseModel(
     image: "assets/screen/python.png",
     title: "Python",
     instructor: "Angela White",
@@ -11,8 +11,12 @@ final List<Course> continueLearningCourses = [
     rating: 4.5,
     level: "Intermediate Level",
     price: "Free",
+    videos: "20",
+    learner: "(1.8k Learners)",
+    id: 1,
+    isSaved: false,
   ),
-  Course(
+  CourseModel(
     image: "assets/screen/flutter.png",
     title: "Flutter",
     instructor: "Angela White",
@@ -22,58 +26,79 @@ final List<Course> continueLearningCourses = [
     rating: null,
     level: "Beginner",
     price: "Free",
+    videos: "20",
+    learner: "(1.8k Learners)",
+     id: 2,
+    isSaved: false,
   ),
-  // Add more continue learning courses as needed
 ];
 
-final List<Course> newAndTrendingCourses = [
-  Course(
+final List<CourseModel> newAndTrendingCourses = [
+  CourseModel(
     image: "assets/screen/ui_ux_design.png",
     title: "UI/UX Designing",
     hoursLeft: null,
     progressPercentage: 00,
     instructorImage: 'assets/screen/profile.png',
+    instructor: "Angela White",
     rating: 4.0,
     level: "Beginner Level",
     price: "Free",
-    isBookmarked: true,
+    isBookmarked: false,
+    videos: "20",
+    learner: "(1.8k Learners)",
+     id: 3,
+    isSaved: false,
   ),
-  Course(
+  CourseModel(
     image: "assets/screen/digital_marketing.png",
     title: "Digital Marketing",
     hoursLeft: null,
     progressPercentage: 00,
     instructorImage: 'assets/screen/profile.png',
+    instructor: "Angela White",
     rating: 5.0,
     level: "Advanced Level",
     price: "79.99",
     isBookmarked: false,
+    videos: "20",
+    learner: "(1.8k Learners)",
+     id: 4,
+    isSaved: false,
   ),
 ];
 
-final List<Course> recommendedCourses = [
-  Course(
+final List<CourseModel> recommendedCourses = [
+  CourseModel(
     image: "assets/screen/dev_ops.png",
     title: "DevOps",
     hoursLeft: null,
     progressPercentage: 00,
     instructorImage: 'assets/screen/profile.png',
+    instructor: "Angela White",
     rating: 4.8,
     level: "Intermediate Level",
     price: '39.99',
     isBookmarked: false,
+    videos: "20",
+    learner: "(1.8k Learners)",
+     id: 5,
+    isSaved: false,
   ),
-  Course(
+  CourseModel(
     image: "assets/screen/seo.png",
     title: "Advanced SEO",
-    instructor: "SEO Expert",
+    instructor: "Angela White",
     hoursLeft: null,
     instructorImage: 'assets/screen/profile.png',
     progressPercentage: 00,
     rating: 4.8,
     level: "Advanced Level",
     price: "59.99",
-    isBookmarked: true,
+    isBookmarked: false,
+    videos: "20",
+    learner: "(1.8k Learners)",
+     id: 6,
+    isSaved: false,
   ),
-  // Add more recommended courses as needed
 ];

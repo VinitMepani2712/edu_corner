@@ -1,9 +1,13 @@
+import 'package:edu_corner/model/course_deatils_model.dart';
 import 'package:edu_corner/model/course_model.dart';
 import 'package:edu_corner/model/course_model_content.dart';
+import 'package:edu_corner/pages/course_details/course_details_screen.dart';
 import 'package:edu_corner/pages/home/notifiction_page.dart';
+import 'package:edu_corner/provider/homes_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,39 +15,70 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late HomeProviderScreen _homeProviderScreen;
+
+  @override
+  void initState() {
+    super.initState();
+    _homeProviderScreen =
+        Provider.of<HomeProviderScreen>(context, listen: false);
+    _homeProviderScreen.installDataLoad();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 10.h),
-            _buildHeader(),
-            _buildSearchBar(),
-            SizedBox(height: 20.h),
-            _buildSectionTitle("Top Categories"),
-            SizedBox(height: 10.h),
-            _buildCategoryButtons(),
-            SizedBox(height: 10.h),
-            _buildCourseSection("Continue Learning", continueLearningCourses),
-            SizedBox(height: 10.h),
-            _buildCourseSectionHorizontalScroll(
-                "New & Trending Courses", newAndTrendingCourses),
-            SizedBox(height: 20.h),
-            _buildCourseSectionHorizontalScroll(
-                "Recommended Courses", recommendedCourses),
-            SizedBox(height: 20.h),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Consumer<HomeProviderScreen>(
+            builder: (context, homeProviderScreen, child) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildHeader(context),
+                  _buildSearchBar(),
+                  SizedBox(height: 20.h),
+                  _buildSectionTitle("Top Categories"),
+                  SizedBox(height: 10.h),
+                  _buildCategoryButtons(),
+                  SizedBox(height: 10.h),
+                  _buildCourseSection(
+                    "Continue Learning",
+                    continueLearningCourses,
+                    homeProviderScreen,
+                  ),
+                  SizedBox(height: 15.h),
+                  _buildCourseSectionHorizontalScroll(
+                    "New & Trending Courses",
+                    newAndTrendingCourses,
+                    homeProviderScreen,
+                    context,
+                  ),
+                  SizedBox(height: 20.h),
+                  _buildCourseSectionHorizontalScroll(
+                    "Recommended Courses",
+                    recommendedCourses,
+                    homeProviderScreen,
+                    context,
+                  ),
+                  SizedBox(height: 20.h),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(left: 20.w, right: 20.w, top: 35.0.h, bottom: 20.0.h),
+      padding: EdgeInsets.only(
+        left: 20.w,
+        right: 20.w,
+        top: 10.0.h,
+        bottom: 20.0.h,
+      ),
       child: Row(
         children: [
           CircleAvatar(
@@ -141,7 +176,9 @@ class _HomeScreenState extends State<HomeScreen> {
             _buildCategoryButton(FontAwesomeIcons.computer, "UI/UX Design"),
             SizedBox(width: 10.w),
             _buildCategoryButton(
-                FontAwesomeIcons.laptopCode, "Web Development"),
+              FontAwesomeIcons.laptopCode,
+              "Web Development",
+            ),
             SizedBox(width: 10.w),
             _buildCategoryButton(FontAwesomeIcons.figma, "Figma"),
           ],
@@ -162,17 +199,24 @@ class _HomeScreenState extends State<HomeScreen> {
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
-            side: BorderSide(color: Color(0xffD1CDCB)),
+            side: BorderSide(
+              color: Color(0xffD1CDCB),
+            ),
           ),
         ),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
-        padding:
-            WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 10.w)),
+        padding: WidgetStateProperty.all(
+          EdgeInsets.symmetric(horizontal: 10.w),
+        ),
       ),
     );
   }
 
-  Widget _buildCourseSection(String title, List<Course> courses) {
+  Widget _buildCourseSection(
+    String title,
+    List<CourseModel> courses,
+    HomeProviderScreen homeProviderScreen,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -207,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildCourseRow(Course course) {
+  Widget _buildCourseRow(CourseModel course) {
     return Card(
       elevation: 3,
       child: Padding(
@@ -224,7 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(width: 15.w),
+            SizedBox(width: 10.w),
             Expanded(
               child: Row(
                 children: [
@@ -297,7 +341,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildCourseSectionHorizontalScroll(
-      String title, List<Course> courses) {
+    String title,
+    List<CourseModel> courses,
+    HomeProviderScreen homeProviderScreen,
+    BuildContext context,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -324,7 +372,11 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: List.generate(
               courses.length,
-              (index) => _buildCourseCard(courses[index]),
+              (index) => _buildCourseCard(
+                courses[index],
+                homeProviderScreen,
+                context,
+              ),
             ),
           ),
         ),
@@ -332,18 +384,36 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildCourseCard(Course course) {
+  Widget _buildCourseCard(
+    CourseModel course,
+    HomeProviderScreen homeProviderScreen,
+    BuildContext context,
+  ) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CourseDetailsScreen(
+              courseDetailsModel: CourseDetailsModel(
+                course: course,
+                onSavedToggle: (isFavorite) {},
+                isSaved:
+                    homeProviderScreen.savedCourse.contains(course),
+              ),
+            ),
+          ),
+        );
+      },
       child: Card(
         elevation: 5,
         color: Color(0xffFFFDFD),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.all(10.w),
+        margin: EdgeInsets.all(10),
         child: Container(
-          width: 165.w,
+          width: 165,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -352,50 +422,76 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Image.asset(
                   course.image,
                   width: double.infinity,
-                  height: 150.h,
+                  height: 150,
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 10),
               Padding(
-                padding:
-                    EdgeInsets.only(left: 8.0.w, right: 10.0.w, bottom: 10.0.w),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          course.title,
-                          style: TextStyle(
-                              fontSize: 14.sp, fontWeight: FontWeight.bold),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
+                        Flexible(
+                          child: Text(
+                            course.title,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                        Spacer(),
-                        Icon(Icons.bookmark_border_sharp),
+                        GestureDetector(
+                          onTap: () {
+                            homeProviderScreen.updateFavoriteData(
+                                id: course.id);
+                          },
+                          child: homeProviderScreen.savedCourse.contains(course)
+                              ? Icon(
+                                  Icons.bookmark_added_rounded,
+                                  size: 25,
+                                )
+                              : Icon(
+                                  Icons.bookmark_add_outlined,
+                                  size: 25,
+                                ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 10),
                     Text(
                       course.level,
-                      style: TextStyle(fontSize: 12.sp, color: Colors.grey),
+                      style: TextStyle(fontSize: 12, color: Colors.grey),
                     ),
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 10),
+                    Text(
+                      '${course.videos} Videos',
+                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                    ),
+                    SizedBox(height: 10),
                     if (course.rating != null) ...[
                       Row(
                         children: [
                           Icon(Icons.star, color: Colors.yellow),
                           Text(
                             course.rating!.toString(),
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.grey),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
                           ),
                           Spacer(),
                           Text(
                             '\u{20B9} ${course.price}',
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.blue),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.blue,
+                            ),
                           ),
                         ],
                       ),

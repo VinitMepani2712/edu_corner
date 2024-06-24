@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widget/content_modal.dart';
+import '../../model/content_modal.dart';
 import '../../widget/widget_support.dart';
 import '../Auth/log_in_page.dart';
 import '../Auth/sign_up_page.dart';

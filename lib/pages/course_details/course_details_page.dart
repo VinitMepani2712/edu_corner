@@ -220,9 +220,9 @@ class _CourseDetailsState extends State<CourseDetails>
                       border: Border.all(color: Colors.transparent),
                       color: Color(0xff0E74BC),
                     ),
-                    overlayColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed)) {
+                    overlayColor: WidgetStateProperty.resolveWith<Color>(
+                      (Set<WidgetState> states) {
+                        if (states.contains(WidgetState.pressed)) {
                           return Color.fromARGB(0, 0, 0, 0);
                         }
                         return Color.fromARGB(0, 0, 0, 0);

@@ -1,6 +1,6 @@
-import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/splash_screen.dart';
-import 'package:edu_corner/provider/course_provider.dart';
+import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
+
+import 'package:edu_corner/provider/homes_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +11,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => CourseProvider(),
+          create: (context) => HomeProviderScreen(),
         ),
       ],
       child: const MyApp(),
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
             ),
             useMaterial3: true,
           ),
-          home: HomeScreen(),
+          home: BottomNavBarPage(),
         );
       },
     );

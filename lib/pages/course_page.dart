@@ -27,7 +27,6 @@ class _MyCoursePageState extends State<MyCoursePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 TabBar(
-                  // labelPadding: EdgeInsets.only(left: 15),
                   labelColor: Colors.white,
                   dividerColor: Colors.transparent,
                   indicator: BoxDecoration(
@@ -36,9 +35,9 @@ class _MyCoursePageState extends State<MyCoursePage> {
                     borderRadius: BorderRadius.circular(10.0),
                     color: Color(0xff0E74BC),
                   ),
-                  overlayColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed)) {
+                  overlayColor: WidgetStateProperty.resolveWith<Color>(
+                    (Set<WidgetState> states) {
+                      if (states.contains(WidgetState.pressed)) {
                         return Color.fromARGB(0, 0, 0, 0);
                       }
                       return Color.fromARGB(0, 0, 0, 0);
