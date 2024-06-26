@@ -10,8 +10,9 @@ class CourseModel {
   final String? learner;
   final String level;
   final String videos;
-  final String price;
+  final double price;
   final bool isBookmarked;
+  final String category;
   bool isSaved;
 
   CourseModel({
@@ -29,5 +30,6 @@ class CourseModel {
     required this.price,
     this.isBookmarked = false,
     required this.isSaved,
+    required this.category
   });
 }

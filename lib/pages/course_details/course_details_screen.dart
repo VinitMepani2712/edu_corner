@@ -1,6 +1,5 @@
 import 'package:edu_corner/model/comment_model.dart';
 import 'package:edu_corner/model/course_deatils_model.dart';
-import 'package:edu_corner/model/course_model.dart';
 import 'package:edu_corner/model/curriculum_model.dart';
 import 'package:edu_corner/model/project_model.dart';
 import 'package:edu_corner/model/releted_course.dart';

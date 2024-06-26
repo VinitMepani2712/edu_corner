@@ -1,6 +1,5 @@
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});

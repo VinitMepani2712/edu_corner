@@ -11,11 +11,9 @@ class HomeProviderScreen with ChangeNotifier {
   void installDataLoad() {
     allCourseData.clear();
     filteredCourse.clear();
-
-    allCourseData.addAll(recommendedCourses);
-    allCourseData.addAll(newAndTrendingCourses);
-    filteredCourse.addAll(allCourseData);
+    allCourseData.addAll(allCourse);
     savedCourse = allCourseData.where((item) => item.isSaved).toList();
+
     notifyListeners();
   }
 
@@ -34,7 +32,6 @@ class HomeProviderScreen with ChangeNotifier {
           savedCourse.removeWhere((item) => item.id == id);
         }
         notifyListeners();
-        break;
       }
     }
   }

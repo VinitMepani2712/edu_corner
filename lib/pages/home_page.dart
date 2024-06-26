@@ -26,12 +26,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Consumer<HomeProviderScreen>(
             builder: (context, homeProviderScreen, child) {
+              // Categorize courses and filter continue learning courses
+              Map<String, dynamic> categorizedAndFilteredCourses =
+                  categorizeAndFilterCourses(allCourse);
+              Map<String, List<CourseModel>> categorizedCourses =
+                  categorizedAndFilteredCourses["categorizedCourses"];
+              List<CourseModel> continueLearningCourses =
+                  categorizedAndFilteredCourses["continueLearningCourses"];
+
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -43,21 +52,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   _buildCategoryButtons(),
                   SizedBox(height: 10.h),
                   _buildCourseSection(
-                    "Continue Learning",
-                    continueLearningCourses,
+                    {"Continue Learning": continueLearningCourses},
                     homeProviderScreen,
                   ),
                   SizedBox(height: 15.h),
                   _buildCourseSectionHorizontalScroll(
                     "New & Trending Courses",
-                    newAndTrendingCourses,
+                    categorizedCourses["newAndTrendingCourses"] ?? [],
                     homeProviderScreen,
                     context,
                   ),
                   SizedBox(height: 20.h),
                   _buildCourseSectionHorizontalScroll(
                     "Recommended Courses",
-                    recommendedCourses,
+                    categorizedCourses["recommendedCourses"] ?? [],
                     homeProviderScreen,
                     context,
                   ),
@@ -213,41 +221,51 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildCourseSection(
-    String title,
-    List<CourseModel> courses,
+    Map<String, List<CourseModel>> categorizedCourses,
     HomeProviderScreen homeProviderScreen,
   ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: categorizedCourses.entries.map((entry) {
+        String categoryTitle = entry.key;
+        List<CourseModel> courses = entry.value;
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 10.h),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      categoryTitle,
+                      style: TextStyle(
+                          fontSize: 18.sp, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "View All",
+                      style: TextStyle(color: Color(0xff0E74BC)),
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "View All",
-                style: TextStyle(color: Color(0xff0E74BC)),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: courses.length,
+                itemBuilder: (context, index) {
+                  return _buildCourseRow(
+                    courses[index],
+                  );
+                },
               ),
             ],
           ),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: courses.length,
-          itemBuilder: (context, index) {
-            return _buildCourseRow(
-              courses[index],
-            );
-          },
-        ),
-      ],
+        );
+      }).toList(),
     );
   }
 
@@ -376,6 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 courses[index],
                 homeProviderScreen,
                 context,
+                index,
               ),
             ),
           ),
@@ -388,6 +407,7 @@ class _HomeScreenState extends State<HomeScreen> {
     CourseModel course,
     HomeProviderScreen homeProviderScreen,
     BuildContext context,
+    int index,
   ) {
     return GestureDetector(
       onTap: () {
@@ -398,8 +418,9 @@ class _HomeScreenState extends State<HomeScreen> {
               courseDetailsModel: CourseDetailsModel(
                 course: course,
                 onSavedToggle: (isFavorite) {},
-                isSaved:
-                    homeProviderScreen.savedCourse.contains(course),
+                isSaved: homeProviderScreen.savedCourse.contains(course),
+                imagePaths: [],
+                selectedImageIndex: index,
               ),
             ),
           ),
@@ -486,13 +507,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Spacer(),
-                          Text(
-                            '\u{20B9} ${course.price}',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
+                          if (course.price == 0)
+                            Text(
+                              'Free',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.blue,
+                              ),
+                            )
+                          else
+                            Text(
+                              '\u{20B9} ${course.price}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.blue,
+                              ),
                             ),
-                          ),
                         ],
                       ),
                     ],
