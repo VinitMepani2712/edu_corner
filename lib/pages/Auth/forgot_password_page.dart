@@ -135,7 +135,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BottomNavBarPage(),
+                          builder: (context) => BottomNavBarScreen(),
                         ),
                       );
                   },

@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   bool isPasswordVisible1 = false;
   bool isChecked = false;
 
@@ -189,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: ((context) => BottomNavBarPage()),
+                          builder: ((context) => BottomNavBarScreen()),
                         ),
                       );
                   },
@@ -290,7 +290,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpPage(),
+                        builder: (context) => SignUpScreen(),
                       ),
                     );
                   },

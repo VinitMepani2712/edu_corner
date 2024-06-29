@@ -43,7 +43,12 @@ dependencies:
   google_fonts: ^6.2.1
   provider: ^6.1.2
   cloud_firestore: ^5.0.1
-  firebase_auth: ^5.1.0
+  firebase_auth: ^5.1.1
+  firebase_core: ^3.1.1
+  google_sign_in: ^6.2.1
+  firebase_storage: ^12.1.0
+  image_picker: ^1.1.2
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +77,7 @@ flutter:
     - assets/onboardscreenimages/
     - assets/screen/
     - assets/svg/
+    - assets/profile/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

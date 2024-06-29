@@ -13,7 +13,6 @@ class HomeProviderScreen with ChangeNotifier {
     filteredCourse.clear();
     allCourseData.addAll(allCourse);
     savedCourse = allCourseData.where((item) => item.isSaved).toList();
-
     notifyListeners();
   }
 
@@ -32,6 +31,7 @@ class HomeProviderScreen with ChangeNotifier {
           savedCourse.removeWhere((item) => item.id == id);
         }
         notifyListeners();
+        break;
       }
     }
   }

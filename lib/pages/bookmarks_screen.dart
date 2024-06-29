@@ -65,7 +65,13 @@ class _BookmarksPageState extends State<BookmarksPage> {
           itemCount: homeProviderScreen.savedCourse.length,
           itemBuilder: (context, index) {
             final course = homeProviderScreen.savedCourse[index];
-            return buildCourseCard(course, index, homeProviderScreen);
+
+            return Column(
+              children: [
+                buildCourseCard(course, index, homeProviderScreen),
+                SizedBox(height: 12.0),
+              ],
+            );
           },
         ),
       );
@@ -94,6 +100,7 @@ class _BookmarksPageState extends State<BookmarksPage> {
       ),
       child: Card(
         elevation: 3,
+        color: Colors.white,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
           child: Row(
@@ -118,7 +125,8 @@ class _BookmarksPageState extends State<BookmarksPage> {
                       child: Container(
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  width: 1, color: Color(0xff0E74BC)),
+                                  width: 1,
+                                  color: Color.fromARGB(255, 149, 156, 161)),
                               color: Colors.white),
                           child: Padding(
                             padding: const EdgeInsets.only(
@@ -131,56 +139,78 @@ class _BookmarksPageState extends State<BookmarksPage> {
               ),
               SizedBox(width: 10.w),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      course.title,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5.h),
-                    if (course.price == 0)
-                      Text(
-                        'Free',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.blue,
-                        ),
-                      )
-                    else
-                      Text(
-                        '\u{20B9} ${course.price}',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    if (course.rating != null)
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10.0.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Row(
                         children: [
-                          Icon(Icons.star, color: Colors.yellow),
-                          SizedBox(width: 4.0),
                           Text(
-                            course.rating!.toString(),
+                            course.title,
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
-                              color: const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                          Spacer(),
+                          InkWell(
+                            onTap: () => homeProviderScreen.updateFavoriteData(
+                                id: course.id),
+                            child: Icon(
+                              Icons.delete,
+                              size: 25,
                             ),
                           ),
                         ],
                       ),
-                    if (course.rating != null && course.learner != null)
-                      SizedBox(width: 8.0),
-                    if (course.learner != null)
-                      Text(
-                        ' ${course.learner!}',
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
-                      ),
-                  ],
+                      SizedBox(height: 10.h),
+                      if (course.price == 0)
+                        Text(
+                          'Free',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                          ),
+                        )
+                      else
+                        Text(
+                          '\u{20B9} ${course.price}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      SizedBox(height: 5.h),
+                      Row(
+                        children: [
+                          if (course.rating != null)
+                            Row(
+                              children: [
+                                Icon(Icons.star, color: Colors.yellow),
+                                SizedBox(width: 4.0),
+                                Text(
+                                  course.rating!.toString(),
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          if (course.rating != null && course.learner != null)
+                            SizedBox(width: 8.0),
+                          if (course.learner != null)
+                            Text(
+                              ' ${course.learner!}',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.grey),
+                            ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -189,4 +219,6 @@ class _BookmarksPageState extends State<BookmarksPage> {
       ),
     );
   }
+
+
 }

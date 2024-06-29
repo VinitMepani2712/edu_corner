@@ -104,4 +104,12 @@ class AppWidget {
       color: Color.fromARGB(255, 255, 0, 0),
     );
   }
+
+  static TextStyle snackbarTextStyle() {
+    return const TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    );
+  }
 }

@@ -20,12 +20,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _homeProviderScreen =
-        Provider.of<HomeProviderScreen>(context, listen: false);
-    _homeProviderScreen.installDataLoad();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _homeProviderScreen =
+          Provider.of<HomeProviderScreen>(context, listen: false);
+      _homeProviderScreen.installDataLoad();
+    });
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SingleChildScrollView(
           child: Consumer<HomeProviderScreen>(
             builder: (context, homeProviderScreen, child) {
-              // Categorize courses and filter continue learning courses
               Map<String, dynamic> categorizedAndFilteredCourses =
                   categorizeAndFilterCourses(allCourse);
               Map<String, List<CourseModel>> categorizedCourses =

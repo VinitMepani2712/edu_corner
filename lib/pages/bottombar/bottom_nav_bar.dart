@@ -1,21 +1,21 @@
-import 'package:edu_corner/pages/bookmarks_page.dart';
-import 'package:edu_corner/pages/course_page.dart';
-import 'package:edu_corner/pages/home_page.dart';
-import 'package:edu_corner/pages/inbox_page.dart';
-import 'package:edu_corner/pages/profile_page.dart';
+import 'package:edu_corner/pages/bookmarks_screen.dart';
+import 'package:edu_corner/pages/course_screen.dart';
+import 'package:edu_corner/pages/home_screen.dart';
+import 'package:edu_corner/pages/inbox_screen.dart';
+import 'package:edu_corner/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BottomNavBarPage extends StatefulWidget {
-  const BottomNavBarPage({Key? key});
+class BottomNavBarScreen extends StatefulWidget {
+  const BottomNavBarScreen({Key? key});
 
   @override
-  State<BottomNavBarPage> createState() => _BottomNavBarPageState();
+  State<BottomNavBarScreen> createState() => _BottomNavBarScreenState();
 }
 
-class _BottomNavBarPageState extends State<BottomNavBarPage> {
+class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int currentTabIndex = 0;
   late List<Widget> pages;
   late HomeScreen homePage;

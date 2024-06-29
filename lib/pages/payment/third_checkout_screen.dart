@@ -118,7 +118,7 @@ class _ThirdCheckOutScreenState extends State<ThirdCheckOutScreen> {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => BottomNavBarPage(),
+          builder: (context) => BottomNavBarScreen(),
         ),
       ),
       child: Center(

@@ -6,14 +6,14 @@ import '../../widget/widget_support.dart';
 import '../Auth/log_in_page.dart';
 import '../Auth/sign_up_page.dart';
 
-class OnBoardPage extends StatefulWidget {
-  const OnBoardPage({Key? key}) : super(key: key);
+class OnBoardScreen extends StatefulWidget {
+  const OnBoardScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardPage> createState() => _OnBoardPageState();
+  State<OnBoardScreen> createState() => _OnBoardScreenState();
 }
 
-class _OnBoardPageState extends State<OnBoardPage> {
+class _OnBoardScreenState extends State<OnBoardScreen> {
   int currentIndex = 0;
   late PageController _controller = PageController();
 
@@ -132,7 +132,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
               if (currentIndex == contents.length - 1) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SignUpPage()),
+                  MaterialPageRoute(builder: (context) => SignUpScreen()),
                 );
               }
               _controller.nextPage(
@@ -214,7 +214,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginPage(),
+                                builder: (context) => LoginScreen(),
                               ),
                             );
                           },
@@ -249,7 +249,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginPage(),
+                                builder: (context) => LoginScreen(),
                               ),
                             );
                           },

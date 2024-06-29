@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "328135743793",
+    "project_id": "education-corner-745ec",
+    "storage_bucket": "education-corner-745ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328135743793:android:c973aa4af0277577def810",
+        "android_client_info": {
+          "package_name": "com.example.edu_corner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328135743793-oucon503etkksf98ac126hsme61imk2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK_9nF1VrGgSpIZfC0_Da6m17PRtyYTeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328135743793-oucon503etkksf98ac126hsme61imk2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
