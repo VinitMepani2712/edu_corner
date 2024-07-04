@@ -151,7 +151,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             SvgPicture.asset(
               iconPath,
               height: 100,
-              color: iconColor,
+              colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
             ),
             SizedBox(height: 15),
             Text(

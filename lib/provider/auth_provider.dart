@@ -1,9 +1,14 @@
-import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
+import 'dart:io';
+
+import 'package:edu_corner/screen/bottombar/bottom_nav_bar.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as path;
 
 class AuthenticationProvider extends ChangeNotifier {
   String _name = "";
@@ -14,6 +19,7 @@ class AuthenticationProvider extends ChangeNotifier {
   bool _isLoggingIn = false;
   bool _isSignIn = false;
   bool isChecked = false;
+  String _profileImageUrl = "";
 
   String get name => _name;
   String get email => _email;
@@ -22,6 +28,7 @@ class AuthenticationProvider extends ChangeNotifier {
   bool get isConfirmPasswordVisible => _isConfirmPasswordVisible;
   bool get isLoggingIn => _isLoggingIn;
   bool get isSignIn => _isSignIn;
+  String get profileImageUrl => _profileImageUrl;
   bool showCheckboxError = false;
 
   final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -32,6 +39,7 @@ class AuthenticationProvider extends ChangeNotifier {
       TextEditingController();
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseStorage _storage = FirebaseStorage.instance;
 
   void setName(String name) {
     _name = name;
@@ -63,22 +71,31 @@ class AuthenticationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Future<void> updateUserProfile(
-  //     String name, String phoneNumber, String gender, String imageUrl) async {
-  //   try {
-  //     String userId = FirebaseAuth.instance.currentUser!.uid;
-  //     final CollectionReference users =
-  //         FirebaseFirestore.instance.collection('users');
+  Future<void> uploadProfileImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
-  //     await users.doc(userId).update({
-  //       'name': name,
-  //       'phoneNumber': phoneNumber,
-  //       'gender': gender,
-  //     });
-  //   } catch (e) {
-  //     throw e;
-  //   }
-  // }
+    if (pickedFile != null) {
+      final fileName = path.basename(pickedFile.path);
+      final ref = _storage.ref().child('profile_images').child(fileName);
+      final uploadTask = ref.putFile(File(pickedFile.path));
+
+      final snapshot = await uploadTask.whenComplete(() {});
+      final url = await snapshot.ref.getDownloadURL();
+
+      _profileImageUrl = url;
+      notifyListeners();
+    }
+  }
+
+  Future<void> saveUserProfile(User user) async {
+    await _firestore.collection('users').doc(user.uid).set({
+      'uid': user.uid,
+      'email': _email,
+      'name': _name,
+      'profileImageUrl': _profileImageUrl,
+    }, SetOptions(merge: true));
+  }
 
   Future<void> userSignIn(BuildContext context) async {
     _isLoggingIn = true;
@@ -91,12 +108,13 @@ class AuthenticationProvider extends ChangeNotifier {
         password: _password,
       );
 
-      _firestore.collection('users').doc(userCredential.user!.uid).set({
-        'uid': userCredential.user!.uid,
-        'email': _email,
-        'name': _name,
-        'password': _password,
-      }, SetOptions(merge: true));
+      final userDoc = await _firestore
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .get();
+      if (userDoc.exists) {
+        _profileImageUrl = userDoc.data()?['profileImageUrl'] ?? "";
+      }
 
       Navigator.pushReplacement(
         context,
@@ -169,11 +187,7 @@ class AuthenticationProvider extends ChangeNotifier {
         ),
       );
 
-      _firestore.collection('users').doc(userCredential.user!.uid).set({
-        'uid': userCredential.user!.uid,
-        'email': _email,
-        'name': _name,
-      }, SetOptions(merge: true));
+      await saveUserProfile(userCredential.user!);
     } on FirebaseAuthException catch (e) {
       String errorMessage = '';
       if (e.code == "weak-password") {
@@ -216,17 +230,6 @@ class AuthenticationProvider extends ChangeNotifier {
         print('User cancelled Google sign-in');
         return;
       }
-      _firestore
-          .collection('users')
-          .doc(googleSignInAccount.serverAuthCode)
-          .set(
-        {
-          'uid': googleSignInAccount.id,
-          'email': googleSignInAccount.email,
-          'name': googleSignInAccount.displayName,
-        },
-        SetOptions(merge: true),
-      );
 
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
@@ -241,6 +244,14 @@ class AuthenticationProvider extends ChangeNotifier {
       final User? user = userCredential.user;
 
       if (user != null) {
+        final userDoc =
+            await _firestore.collection('users').doc(user.uid).get();
+        if (userDoc.exists) {
+          _profileImageUrl = userDoc.data()?['profileImageUrl'] ?? "";
+        } else {
+          await saveUserProfile(user);
+        }
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(

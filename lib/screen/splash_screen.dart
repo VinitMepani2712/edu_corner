@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:edu_corner/pages/Auth/sign_up_page.dart';
-import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
-import 'package:edu_corner/pages/onboardscreen/on_board_screen.dart';
+import 'package:edu_corner/screen/Auth/sign_up_page.dart';
+import 'package:edu_corner/screen/bottombar/bottom_nav_bar.dart';
+import 'package:edu_corner/screen/onboardscreen/on_board_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -1,6 +1,6 @@
-import 'package:edu_corner/pages/payment/add_new_card_screen.dart';
-import 'package:edu_corner/pages/payment/payment_method_screen.dart';
-import 'package:edu_corner/pages/payment/third_checkout_screen.dart';
+import 'package:edu_corner/screen/payment/add_new_card_screen.dart';
+import 'package:edu_corner/screen/payment/payment_method_screen.dart';
+import 'package:edu_corner/screen/payment/third_checkout_screen.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

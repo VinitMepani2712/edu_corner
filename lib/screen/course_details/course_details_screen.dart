@@ -1,9 +1,12 @@
+import 'package:edu_corner/model/cart_model.dart';
 import 'package:edu_corner/model/comment_model.dart';
 import 'package:edu_corner/model/course_deatils_model.dart';
 import 'package:edu_corner/model/curriculum_model.dart';
 import 'package:edu_corner/model/project_model.dart';
 import 'package:edu_corner/model/releted_course.dart';
+import 'package:edu_corner/provider/cart_screen_provider.dart';
 import 'package:edu_corner/provider/homes_screen_provider.dart';
+import 'package:edu_corner/screen/cart/cart_screen.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,9 +48,29 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen>
   Widget build(BuildContext context) {
     HomeProviderScreen homeProviderScreen =
         Provider.of<HomeProviderScreen>(context, listen: false);
+    CartProvider cartProvider =
+        Provider.of<CartProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Course Details'),
+        title: Row(
+          children: [
+            Text('Course Details'),
+            Spacer(),
+            IconButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => CartScreen(),
+                ),
+              ),
+              icon: Icon(Icons.shopping_cart_outlined),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.share),
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -72,7 +95,7 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen>
             SizedBox(height: 8.0),
             _buildRelatedCourses(),
             SizedBox(height: 8.0),
-            _buildStartLearningButton(),
+            _buildStartLearningButton(cartProvider, widget.courseDetailsModel),
           ],
         ),
       ),
@@ -553,7 +576,10 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen>
     );
   }
 
-  Widget _buildStartLearningButton() {
+  Widget _buildStartLearningButton(
+    CartProvider cartProvider,
+    CourseDetailsModel courseDetailsModel,
+  ) {
     return Center(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
@@ -566,13 +592,33 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen>
         ),
         child: TextButton(
           onPressed: () {
-            // Handle button press
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Row(
+                  children: [
+                    Text(
+                      '${courseDetailsModel.course.title} Added to the cart',
+                      style:
+                          TextStyle(color: Color.fromARGB(223, 255, 255, 255)),
+                    ),
+                  ],
+                ),
+                backgroundColor: Colors.brown,
+                duration: Duration(milliseconds: 500),
+              ),
+            );
+
+            cartProvider.addItem(CartItem(course: courseDetailsModel.course));
+            cartItems.add(
+              CartItem(
+                course: courseDetailsModel.course,
+              ),
+            );
           },
           child: Text(
             "Start learning",
             textAlign: TextAlign.center,
-            style: AppWidget
-                .signUpAndLoginButtonTextStyle(), // Assuming this style is defined
+            style: AppWidget.signUpAndLoginButtonTextStyle(),
           ),
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:edu_corner/pages/bottombar/bottom_nav_bar.dart';
+import 'package:edu_corner/screen/bottombar/bottom_nav_bar.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

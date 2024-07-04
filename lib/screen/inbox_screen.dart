@@ -1,4 +1,4 @@
-import 'package:edu_corner/pages/chat/chat_screen_page.dart';
+import 'package:edu_corner/screen/chat/chat_screen_page.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

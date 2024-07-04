@@ -1,6 +1,6 @@
 import 'package:edu_corner/model/course_deatils_model.dart';
 import 'package:edu_corner/model/course_model.dart';
-import 'package:edu_corner/pages/course_details/course_details_screen.dart';
+import 'package:edu_corner/screen/course_details/course_details_screen.dart';
 import 'package:edu_corner/provider/homes_screen_provider.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
@@ -23,11 +23,7 @@ class _BookmarksPageState extends State<BookmarksPage> {
       appBar: AppBar(
         title: Row(
           children: [
-            GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(Icons.arrow_back)),
+           
             SizedBox(
               width: 10,
             ),

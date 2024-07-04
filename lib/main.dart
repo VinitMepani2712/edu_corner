@@ -1,5 +1,6 @@
 import 'package:edu_corner/firebase_options.dart';
-import 'package:edu_corner/pages/splash_screen.dart';
+import 'package:edu_corner/provider/cart_screen_provider.dart';
+import 'package:edu_corner/screen/splash_screen.dart';
 import 'package:edu_corner/provider/auth_provider.dart';
 import 'package:edu_corner/provider/homes_screen_provider.dart';
 import 'package:edu_corner/provider/profile_provider.dart';
@@ -25,6 +26,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => ProfileProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
         ),
       ],
       child: const MyApp(),

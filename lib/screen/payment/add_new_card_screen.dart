@@ -1,4 +1,4 @@
-import 'package:edu_corner/pages/payment/first_checkout_screen.dart';
+import 'package:edu_corner/screen/payment/first_checkout_screen.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

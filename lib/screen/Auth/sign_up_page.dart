@@ -1,9 +1,9 @@
 import 'package:edu_corner/provider/auth_provider.dart';
+import 'package:edu_corner/screen/Auth/log_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:edu_corner/widget/widget_support.dart';
-import 'package:edu_corner/pages/Auth/log_in_page.dart';
 import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatefulWidget {

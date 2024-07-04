@@ -1,8 +1,8 @@
 import 'package:edu_corner/model/course_deatils_model.dart';
 import 'package:edu_corner/model/course_model.dart';
 import 'package:edu_corner/model/course_model_content.dart';
-import 'package:edu_corner/pages/course_details/course_details_screen.dart';
-import 'package:edu_corner/pages/home/notifiction_page.dart';
+import 'package:edu_corner/screen/course_details/course_details_screen.dart';
+import 'package:edu_corner/screen/home/notifiction_page.dart';
 import 'package:edu_corner/provider/homes_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,4 +1,4 @@
-import 'package:edu_corner/pages/payment/add_new_card_screen.dart';
+import 'package:edu_corner/screen/payment/add_new_card_screen.dart';
 import 'package:edu_corner/widget/widget_support.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

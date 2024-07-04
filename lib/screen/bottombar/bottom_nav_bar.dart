@@ -1,8 +1,8 @@
-import 'package:edu_corner/pages/bookmarks_screen.dart';
-import 'package:edu_corner/pages/course_screen.dart';
-import 'package:edu_corner/pages/home_screen.dart';
-import 'package:edu_corner/pages/inbox_screen.dart';
-import 'package:edu_corner/pages/profile_screen.dart';
+import 'package:edu_corner/screen/bookmarks_screen.dart';
+import 'package:edu_corner/screen/course_screen.dart';
+import 'package:edu_corner/screen/home_screen.dart';
+import 'package:edu_corner/screen/inbox_screen.dart';
+import 'package:edu_corner/screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
